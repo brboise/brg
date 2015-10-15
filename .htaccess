@@ -1,0 +1,153 @@
+# BEGIN W3TC Browser Cache
+<IfModule mod_deflate.c>
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+        AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon application/json
+    <IfModule mod_mime.c>
+        # DEFLATE by extension
+        AddOutputFilter DEFLATE js css htm html xml
+    </IfModule>
+</IfModule>
+# END W3TC Browser Cache
+
+# BEGIN W3TC Page Cache core
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteRule .* - [E=W3TC_ENC:_gzip]
+    RewriteCond %{HTTP_COOKIE} w3tc_preview [NC]
+    RewriteRule .* - [E=W3TC_PREVIEW:_preview]
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{REQUEST_URI} \/$
+    RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|w3tc_logged_out|wordpress_logged_in|wptouch_switch_toggle) [NC]
+    RewriteCond "%{DOCUMENT_ROOT}/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" -f
+    RewriteRule .* "/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" [L]
+</IfModule>
+# END W3TC Page Cache core
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# BEGIN Redirects
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-pays-1q-distribution-of-0-38-per-share-up-2-63/ http://bluerockfunds.com/total-income-real-estate-fund-pays-1q-distribution-of-0-38-per-share-up-2-63/
+Redirect 301 /about-us/our-people/bluerock-capital-markets/ http://bluerockre.com/about/bluerock-capital-markets/
+Redirect 301 /news-events/press-releases/ti-real-estate-fund-reports-strong-performance-with-risk-adjusted-excess-return-alpha/ http://bluerockfunds.com/bluerocks-ti-real-estate-fund-reports-strong-performance-with-risk-adjusted-excess-return-alpha-of-over-8-8-vs-the-sp500/
+Redirect 301 /news-events/press-releases/bluerocks-total-income-real-estate-fund-exceeds-100-million-aum-on-growing-momentum/ http://bluerockfunds.com/bluerocks-total-income-real-estate-fund-exceeds-100-million-aum-on-growing-momentum/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-pays-third-quarter-distribution-of-0-37-per-share-an-increase-of-62-over-2013-q3-dividend/ http://bluerockfunds.com/total-income-real-estate-fund-pays-third-quarter-distribution-of-0-37-per-share-an-increase-of-62-over-2013-q3-dividend/
+Redirect 301 /news-events/in-the-news/wall-street-journal-apartment-rents-are-rising-no-sign-of-easing/ http://bluerockre.com/wall-street-journal-apartment-rents-are-rising-no-sign-of-easing/
+Redirect 301 /news-events/bluerock-in-the-news/who-is-bluerock-real-estate/ http://bluerockre.com/who-is-bluerock-real-estate/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-declares-second-quarter-distribution-makes-new-investment-in-j-p-morgan-fund/ http://bluerockfunds.com/total-income-real-estate-fund-declares-second-quarter-distribution-makes-new-investment-in-j-p-morgan-fund/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-declares-first-quarter-distribution-surpasses-70mm-aum/ http://bluerockfunds.com/total-income-real-estate-fund-declares-first-quarter-distribution-surpasses-70mm-aum/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-announces-new-c-i-share-classes/ http://bluerockfunds.com/total-income-real-estate-fund-announces-new-c-i-share-classes/
+Redirect 301 /news-events/bluerock-in-the-news/higher-prices-migrate-to-far-upper-east-side/ http://bluerockre.com/higher-prices-migrate-to-far-upper-east-side
+Redirect 301 /news-events/in-the-news/study-millionaires-favor-real-estate/ http://bluerockre.com/study-millionaires-favor-real-estate/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-announces-2013-total-returns-of-13-61/ http://bluerockfunds.com/total-income-real-estate-fund-announces-2013-total-returns-of-13-61/
+Redirect 301 /news-events/bluerock-in-the-news/manhattan-condo-sales-hit-record/ http://bluerockre.com/manhattan-condo-sales-hit-record/
+Redirect 301 /news-events/bluerock-in-the-news/the-charles/ http://bluerockre.com/news/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-announces-increasing-quarterly-distribution-target-to-an-expected-5-25-annual-rate-of-return/ http://bluerockfunds.com/total-income-real-estate-fund-announces-increasing-quarterly-distribution-target-to-an-expected-5-25-annual-rate-of-return/
+Redirect 301 /news-events/bluerock-in-the-news/2013-the-year-of-nys-real-estate-bloom/ http://bluerockre.com/2013-the-year-of-nys-real-estate-bloom/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-announces-first-year-total-returns-of-13-59/ http://bluerockfunds.com/total-income-real-estate-fund-announces-first-year-total-returns-of-13-59/
+Redirect 301 /news-events/bluerock-in-the-news/cone-heads-uptown/ http://bluerockre.com/cone-heads-uptown/
+Redirect 301 /investments/brg/ http://bluerockre.com/investments/
+Redirect 301 /news-events/bluerock-in-the-news/nets-coach-jason-kidd-checks-out-the-charles/ http://bluerockre.com/nets-coach-jason-kidd-checks-out-the-charles/
+Redirect 301 /news-events/bluerock-in-the-news/new-development-halcyon-naftali-elad-bluerock-and-fortis/ http://bluerockre.com/new-development-halcyon-naftali-elad-bluerock-and-fortis/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-declares-third-quarter-dividend/ http://bluerockre.com/news/
+Redirect 301 /news-events/bluerock-in-the-news/the-charles-condos-hit-market-at-5-8m-and-up/ http://bluerockre.com/the-charles-condos-hit-market-at-5-8m-and-up/
+Redirect 301 /news-events/bluerock-in-the-news/2013-officially-unseats-2007-as-luxury-real-estate-boom-year/ http://bluerockre.com/2013-officially-unseats-2007-as-luxury-real-estate-boom-year/
+Redirect 301 /news-events/press-releases/jari-vasicko-joins-bluerock-capital-markets-team/ http://bluerockre.com/jari-vasicko-joins-bluerock-capital-markets-team/
+Redirect 301 /news-events/press-releases/bmg-board-terminates-follow-on-offering-authorizes-negotiation-of-engagement-letter-with-investment-banking-firm/ http://bluerockre.com/bmg-board-terminates-follow-on-offering-authorizes-negotiation-of-engagement-letter-with-investment-banking-firm/
+Redirect 301 /news-events/press-releases/christopher-vohs-appointed-chief-accounting-officer-of-bluerock-multifamily-growth-reit/ http://bluerockre.com/christopher-vohs-appointed-chief-accounting-officer-of-bluerock-multifamily-growth-reit/
+Redirect 301 /news-events/press-releases/dan-falls-joins-bluerock-capital-markets-team/ http://bluerockre.com/dan-falls-joins-bluerock-capital-markets-team/
+Redirect 301 /news-events/press-releases/larry-milder-joins-bluerock-capital-markets-as-director-of-national-sales/ http://bluerockre.com/larry-milder-joins-bluerock-capital-markets-as-director-of-national-sales/
+Redirect 301 /news-events/press-releases/bmg-exploring-strategic-alternatives-for-non-traded-reit-portfolio/ http://bluerockre.com/bmg-exploring-strategic-alternatives-for-non-traded-reit-portfolio/
+Redirect 301 /news-events/press-releases/total-income-real-estate-fund-raises-dividend-83-declares-second-quarter-dividend/ http://bluerockre.com/news/
+Redirect 301 /news-events/bluerock-in-the-news/ues-luxury-project-the-charles-by-ismael-leyva-releases-full-site/ http://bluerockre.com/ues-luxury-project-the-charles-by-ismael-leyva-releases-full-site/
+Redirect 301 /news-events/bluerock-in-the-news/inflation-fears-take-another-look-at-some-less-liquid-real-estate/ http://bluerockre.com/inflation-fears-take-another-look-at-some-less-liquid-real-estate/
+Redirect 301 /news-events/bluerock-in-the-news/helping-clients-tiptoe-back-into-real-estate/ http://bluerockre.com/helping-clients-tiptoe-back-into-real-estate/
+Redirect 301 /news-events/press-releases/bluerock-non-traded-reit-announces-new-growth-strategy-new-leadership-new-name-revised-distribution-and-liquidity-policies/ http://bluerockre.com/bluerock-non-traded-reit-announces-new-growth-strategy-new-leadership-new-name-revised-distribution-and-liquidity-policies/
+Redirect 301 /news-events/in-the-news/apartment-vacancy-rate-falls-to-lowest-level-since-2001/ http://bluerockre.com/apartment-vacancy-rate-falls-to-lowest-level-since-2001/
+Redirect 301 /news-events/bluerock-in-the-news/top-portfolio-products-bluerock-launches-total-income-real-estate-fund/ http://bluerockre.com/top-portfolio-products-bluerock-launches-total-income-real-estate-fund/
+Redirect 301 /news-events/bluerock-in-the-news/video-total-income-real-estate-fund-offers-private-deals/ http://bluerockre.com/video-total-income-real-estate-fund-offers-private-deals/
+Redirect 301 /news-events/press-releases/bluerock-launches-total-income-real-estate-fund-provides-individual-investors-access-to-previously-unavailable-institutional-investments/ http://bluerockre.com/bluerock-launches-total-income-real-estate-fund-provides-individual-investors-access-to-previously-unavailable-institutional-investments/
+Redirect 301 /news-events/in-the-news/more-multifamily-development-would-be-nice/ http://bluerockre.com/more-multifamily-development-would-be-nice/
+Redirect 301 /news-events/bluerock-in-the-news/upper-east-side-remains-strong-the-charles/ http://bluerockre.com/upper-east-side-remains-strong-the-charles/
+Redirect 301 /news-events/press-releases/randy-anderson-named-president-of-bluerock-real-estate-as-firm-continues-to-expand-senior-executive-talent/ http://bluerockre.com/randy-anderson-named-president-of-bluerock-real-estate-as-firm-continues-to-expand-senior-executive-talent/
+Redirect 301 /news-events/press-releases/bluerock-sells-the-stratford-in-san-antonio-texas/ http://bluerockre.com/bluerock-sells-the-stratford-in-san-antonio-texas/
+Redirect 301 /news-events/press-releases/bemt-announces-the-acquisition-of-enders-place-at-baldwin-park-located-in-orlando-florida/ http://bluerockre.com/bemt-announces-the-acquisition-of-enders-place-at-baldwin-park-located-in-orlando-florida/
+Redirect 301 /news-events/press-releases/bemt-announces-reduction-in-annual-asset-management-fee-and-other-expense-savings-measures/ http://bluerockre.com/bemt-announces-reduction-in-annual-asset-management-fee-and-other-expense-savings-measures/
+Redirect 301 /news-events/press-releases/bluerock-real-estate-sells-archstone-tech-ridge-apartments/ http://bluerockre.com/
+Redirect 301 /contact-us-tif/ http://bluerockre.com/contact/
+Redirect 301 /investments/tif/ http://bluerockre.com/contact/
+Redirect 301 /news-events/in-the-news/multifamily-quarterly-no-slowdown-in-sight-for-2013/ http://bluerockre.com/multifamily-quarterly-no-slowdown-in-sight-for-2013/
+Redirect 301 /news-events/in-the-news/u-s-institutional-investors-say-alternative-investments-are-essential-as-volatile-markets-are-here-to-stay/ http://bluerockre.com/multifamily-quarterly-no-slowdown-in-sight-for-2013/
+Redirect 301 /news-events/press-releases/bemt-announces-q2-2012-eps-of-3-17-per-share-and-significantly-improved-financials/ http://bluerockre.com/bemt-announces-q2-2012-eps-of-3-17-per-share-and-significantly-improved-financials/
+Redirect 301 /news-events/press-releases/randy-anderson-named-head-of-new-product-development-chief-economist-and-capital-markets-chairman/ http://bluerockre.com/randy-anderson-named-head-of-new-product-development-chief-economist-and-capital-markets-chairman/
+Redirect 301 /news-events/press-releases/bluerock-announces-sori-farsheed-as-head-of-its-relationship-management-team/ http://bluerockre.com/bluerock-announces-sori-farsheed-as-head-of-its-relationship-management-team/
+Redirect 301 /investments/enhanced-multifamily-trust/investment-materials/ http://bluerockre.com/investments/
+Redirect 301 /investments/enhanced-multifamily-trust/executive-leadership/ http://bluerockre.com/investments/
+Redirect 301 /news-events/press-releases/bemt-announces-92-return-on-sale-of-apartments-at-meadowmont-and-improved-financial-reporting/ http://bluerockre.com/bemt-announces-92-return-on-sale-of-apartments-at-meadowmont-and-improved-financial-reporting/
+Redirect 301 /news-events/in-the-news/one-million-renters-added-in-2011-married-and-higher-income-renter-populations-grow-new-report-shows/ http://bluerockre.com/one-million-renters-added-in-2011-married-and-higher-income-renter-populations-grow-new-report-shows/
+Redirect 301 /news-events/press-releases/ http://bluerockre.com/category/press-releases/
+Redirect 301 /about-us/our-mission/ http://bluerockre.com/about/
+Redirect 301 /property-portfolio/multifamily-properties/ http://bluerockre.com/property/multifamily/
+Redirect 301 /property-portfolio/office-properties/ http://bluerockre.com/property/office/
+Redirect 301 /property-portfolio/development-properties/ http://bluerockre.com/property/development/
+Redirect 301 /about-us/our-people/bluerock-real-estate/ http://bluerockre.com/about/bluerock-real-estate/
+Redirect 301 /about-us/who-we-are/ http://bluerockre.com/about/
+Redirect 301 /investments/enhanced-multifamily-trust/ http://bluerockre.com/investments/
+Redirect 301 /contact-us/ http://bluerockre.com/contact/
+Redirect 301 /about-us/privacy-policy/ http://bluerockre.com/about/privacy-policy/
+Redirect 301 /about-us/careers/ http://bluerockre.com/about/careers/
+Redirect 301 /news-events/press-releases/bluerock-real-estate-acquisition-announcement-grove-at-waterford-apartments-hendersonville-nashville-tennessee/ http://bluerockre.com/bluerock-real-estate-acquisition-announcement-grove-at-waterford-apartments-hendersonville-nashville-tennessee/
+Redirect 301 /news-events/press-releases/bluerock-real-estate-development-announcement-note16-apartments-nashville-tennessee/ http://bluerockre.com/bluerock-real-estate-development-announcement-note16-apartments-nashville-tennessee/
+Redirect 301 /news-events/in-the-news/principal-funds-vision-series-alternative-strategies-addressing-market-risk-an-alternative-approach/ http://bluerockre.com/principal-funds-vision-series-alternative-strategies-addressing-market-risk-an-alternative-approach/
+Redirect 301 /news-events/press-releases/bluerock-real-estate-acquisition-announcement-villas-at-oak-crest-apartments-chattanooga-tennessee/ http://bluerockre.com/bluerock-real-estate-acquisition-announcement-villas-at-oak-crest-apartments-chattanooga-tennessee/
+
+Redirect 301 /news-events/press-releases/bemt-invests-in-urban-infill-high-rise-chicagos-mda-city-apartments-in-an-off-market-transaction/ http://bluerockre.com/bemt-invests-in-urban-infill-high-rise-chicagos-mda-city-apartments-in-an-off-market-transaction/
+
+Redirect 301 /news-events/press-releases/bluerock-commences-development-of-the-charles-with-86-million-loan-from-starwood-property-trust/ http://bluerockre.com/bluerock-commences-development-of-the-charles-with-86-million-loan-from-starwood-property-trust/
+Redirect 301 /news-events/bluerock-in-the-news/ http://bluerockre.com/news/
+Redirect 301 /news-events/bluerock-in-the-news/bluerocks-dr-randy-anderson-isnt-surprised-by-industrials-growth/ http://bluerockre.com/bluerocks-dr-randy-anderson-isnt-surprised-by-industrials-growth/
+
+
+Redirect 301 /news-events/in-the-news/renter-nation-the-incredible-housing-story-nobody-is-talking-about/ http://bluerockre.com/renter-nation-the-incredible-housing-story-nobody-is-talking-about/
+Redirect 301 /news-events/bluerock-in-the-news/bluerock-enhanced-multifamily-trust-buys-majority-stake-in-east-loop-apartments/ http://bluerockre.com/bluerock-enhanced-multifamily-trust-buys-majority-stake-in-east-loop-apartments/
+Redirect 301 /news-events/press-releases/bemt-announces-estimated-net-asset-value-of-10-04-per-share/ http://bluerockre.com/bemt-announces-estimated-net-asset-value-of-10-04-per-share/
+
+Redirect 301 /news-events/events/blank-event/ http://bluerockre.com/news/
+Redirect 301 /news-events/events/ http://bluerockre.com/news/
+
+Redirect 301 /news-events/in-the-news/ http://bluerockre.com/news/
+Redirect 301 /news-events/bluerock-in-the-news/multi-housing-news-features-reserve-at-creekside-in-chattanooga-tn/ http://bluerockre.com/multi-housing-news-features-reserve-at-creekside-in-chattanooga-tn/
+Redirect 301 /news-events/press-releases/bemt-invests-in-23hundred-at-berry-hill-development-project-in-nashville-tennessee/ http://bluerockre.com/bemt-invests-in-23hundred-at-berry-hill-development-project-in-nashville-tennessee/
+Redirect 301 /investments/1031-exchanges/ http://bluerockre.com/investments/
+
+Redirect 301 /total-income-real-estate-fund-pays-1q-distribution-of-0-38-per-share-up-2-63/ http://bluerockfunds.com/total-income-real-estate-fund-pays-1q-distribution-of-0-38-per-share-up-2-63/
+Redirect 301 /ti-real-estate-fund-reports-strong-performance-with-risk-adjusted-excess-return-alpha/ http://bluerockfunds.com/bluerocks-ti-real-estate-fund-reports-strong-performance-with-risk-adjusted-excess-return-alpha-of-over-8-8-vs-the-sp500/
+Redirect 301 /bluerocks-total-income-real-estate-fund-exceeds-100-million-aum-on-growing-momentum/ http://bluerockfunds.com/bluerocks-total-income-real-estate-fund-exceeds-100-million-aum-on-growing-momentum/
+Redirect 301 /total-income-real-estate-fund-pays-third-quarter-distribution-of-0-37-per-share-an-increase-of-62-over-2013-q3-dividend/ http://bluerockfunds.com/total-income-real-estate-fund-pays-third-quarter-distribution-of-0-37-per-share-an-increase-of-62-over-2013-q3-dividend/
+Redirect 301 /total-income-real-estate-fund-declares-second-quarter-distribution-makes-new-investment-in-j-p-morgan-fund/ http://bluerockfunds.com/total-income-real-estate-fund-declares-second-quarter-distribution-makes-new-investment-in-j-p-morgan-fund/
+Redirect 301 /total-income-real-estate-fund-declares-first-quarter-distribution-surpasses-70mm-aum/ http://bluerockfunds.com/total-income-real-estate-fund-declares-first-quarter-distribution-surpasses-70mm-aum/
+Redirect 301 /total-income-real-estate-fund-announces-new-c-i-share-classes/ http://bluerockfunds.com/total-income-real-estate-fund-announces-new-c-i-share-classes/
+Redirect 301 /total-income-real-estate-fund-announces-2013-total-returns-of-13-61/ http://bluerockfunds.com/total-income-real-estate-fund-announces-2013-total-returns-of-13-61/
+Redirect 301 /total-income-real-estate-fund-announces-increasing-quarterly-distribution-target-to-an-expected-5-25-annual-rate-of-return/ http://bluerockfunds.com/total-income-real-estate-fund-announces-increasing-quarterly-distribution-target-to-an-expected-5-25-annual-rate-of-return/
+Redirect 301 /total-income-real-estate-fund-announces-first-year-total-returns-of-13-59/ http://bluerockfunds.com/total-income-real-estate-fund-announces-first-year-total-returns-of-13-59/
+
+</IfModule>
+# END Redirects
